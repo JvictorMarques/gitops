@@ -6,7 +6,9 @@ metadata:
 spec:
   project: default
   syncPolicy:
-    automated: {}
+    automated: 
+      prune: false
+      selfHeal: false
   source:
     repoURL: https://github.com/JvictorMarques/gitops
     path: k8s
