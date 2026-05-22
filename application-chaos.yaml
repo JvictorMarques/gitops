@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: app
+  name: chaos
   namespace: argocd
 spec:
   project: default
@@ -9,10 +9,20 @@ spec:
     automated: 
       prune: false
       selfHeal: false
+  ignoreDifferences:
+  - group: apps
+    kind: Deployment
+    jsonPointers:
+    - /spec/replicas
+  - group: autoscaling
+    kind: HorizontalPodAutoscaler
+    jsonPointers:
+    - /status/currentReplicas
+    - /status/desiredReplicas
   source:
     repoURL: https://github.com/JvictorMarques/gitops
-    path: k8s/deploy.yaml
+    path: k8s/chaos.yaml
     targetRevision: HEAD
   destination:
-    namespace: webcolor
+    namespace: chaos
     server: https://kubernetes.default.svc
