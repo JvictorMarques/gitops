@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nginx
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/JvictorMarques/gitops
+    targetRevision: HEAD
+    path: k8s/manifests
+    directory:
+      include: nginx.yaml
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
