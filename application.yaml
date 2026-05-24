@@ -7,20 +7,13 @@ spec:
   project: default
   syncPolicy:
     automated: 
-      prune: false
-      selfHeal: false
+      prune: true
+      selfHeal: true
     syncOptions:
     - CreateNamespace=true
-    - PrunePropagationPolicy=foreground
-    - Validate=true
-    - PruneLast=true
-    - RespectIgnoreDifferences=true
-    - ApplyOutOfSyncOnly=true
   source:
     repoURL: https://github.com/JvictorMarques/gitops
     path: k8s
-    directory:
-      include: deploy.yaml
     targetRevision: HEAD
   destination:
     namespace: webcolor
