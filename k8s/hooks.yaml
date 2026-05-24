@@ -5,6 +5,7 @@ metadata:
   name: pre-sync-hook
   annotations:
     argocd.argoproj.io/hook: PreSync
+      
 spec:
   ttlSecondsAfterFinished: 100
   template:
@@ -28,6 +29,7 @@ metadata:
   name: sync-hook
   annotations:
     argocd.argoproj.io/hook: Sync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
 spec:
   ttlSecondsAfterFinished: 100
   template:
