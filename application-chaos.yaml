@@ -21,7 +21,9 @@ spec:
     - /status/desiredReplicas
   source:
     repoURL: https://github.com/JvictorMarques/gitops
-    path: k8s/chaos.yaml
+    path: k8s
+    directory:
+      include: chaos.yaml
     targetRevision: HEAD
   destination:
     namespace: chaos
