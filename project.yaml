@@ -5,6 +5,9 @@ metadata:
   namespace: argocd
 spec:
   description: Example project for application
+  clusterResourceWhitelist:
+  - group: ""
+    kind: Namespace
   sourceRepos:
   - https://github.com/JvictorMarques/gitops
   destinations:
