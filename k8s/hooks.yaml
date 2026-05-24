@@ -18,7 +18,7 @@ spec:
         - -c
         - |
           curl -X POST -H "Content-Type: application/json" \
-          -d '{"message": "Hello from ArgoCD sync hook!"}' \
+          -d '{"message": "Hello from ArgoCD pre-sync hook!"}' \
           https://webhook.site/6fe0d5be-2927-42c5-a6df-6e8e7b5b3960
       restartPolicy: Never
 ---
