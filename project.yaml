@@ -5,34 +5,8 @@ metadata:
   namespace: argocd
 spec:
   description: Example project for application
-  clusterResourceWhitelist:
-  - group: ""
-    kind: Namespace
   sourceRepos:
   - https://github.com/JvictorMarques/gitops
   destinations:
   - namespace: webcolor
     server: https://kubernetes.default.svc
-  syncWindows:
-  - kind: Allow
-    timeZone: "America/Sao_Paulo"
-    schedule: '* 8 * * 1-5'
-    duration: 8h
-    manualSync: true
-    clusters:
-    - https://kubernetes.default.svc
-    namespaces:
-    - webcolor
-    applications:
-    - app
-  - kind: Deny
-    timeZone: "America/Sao_Paulo"
-    schedule: '0 0 22 11 *'
-    duration: 168h
-    manualSync: false
-    clusters:
-    - https://kubernetes.default.svc
-    namespaces:
-    - webcolor
-    applications:
-    - app
