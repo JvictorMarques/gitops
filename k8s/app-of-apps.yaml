@@ -6,8 +6,7 @@ metadata:
 spec:
   project: default
   syncPolicy:
-    automated: 
-      prune: true
+    automated:
       selfHeal: true
     syncOptions:
     - CreateNamespace=true
@@ -16,5 +15,5 @@ spec:
     path: k8s/app
     targetRevision: HEAD
   destination:
-    namespace: webcolor
+    namespace: argocd
     server: https://kubernetes.default.svc
