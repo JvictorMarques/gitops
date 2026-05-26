@@ -18,3 +18,11 @@ spec:
       selfHeal: true
     syncOptions:
     - CreateNamespace=true
+  minReadySeconds: 30
+  strategy:
+    blueGreen:
+      activeService: webpage-active
+      previewService: webpage-preview
+      autoPromotionEnabled: false
+      autoPromotionSeconds: 30
+      scaleDownDelaySeconds: 60
