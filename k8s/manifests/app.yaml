@@ -29,7 +29,19 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: webpage
+  name: webpage-preview
+spec:
+  selector:
+    app: webpage
+  ports:
+  - port: 80
+    targetPort: 80
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: webpage-active
 spec:
   selector:
     app: webpage
