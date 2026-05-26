@@ -4,7 +4,7 @@ metadata:
   name: app
   namespace: argocd
 spec:
-  project: web
+  project: default
   syncPolicy:
     automated: 
       prune: true
@@ -18,5 +18,5 @@ spec:
       include: blue.yaml
     targetRevision: HEAD
   destination:
-    namespace: webcolor
+    namespace: blue
     server: https://kubernetes.default.svc

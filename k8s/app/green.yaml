@@ -18,5 +18,5 @@ spec:
       include: green.yaml
     targetRevision: HEAD
   destination:
-    namespace: webcolor
+    namespace: green
     server: https://kubernetes.default.svc
