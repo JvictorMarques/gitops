@@ -13,7 +13,9 @@ spec:
     - CreateNamespace=true
   source:
     repoURL: https://github.com/JvictorMarques/gitops
-    path: k8s
+    path: k8s/manifests
+    directory:
+      include: blue.yaml
     targetRevision: HEAD
   destination:
     namespace: webcolor

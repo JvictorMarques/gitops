@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app
+  namespace: argocd
+spec:
+  project: web
+  syncPolicy:
+    automated: 
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+  source:
+    repoURL: https://github.com/JvictorMarques/gitops
+    path: k8s/manifests
+    directory:
+      include: green.yaml
+    targetRevision: HEAD
+  destination:
+    namespace: webcolor
+    server: https://kubernetes.default.svc
