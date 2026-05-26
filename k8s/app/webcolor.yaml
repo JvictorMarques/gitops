@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: webcolor
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/JvictorMarques/gitops
+    path: k8s/manifests
+    targetRevision: HEAD
+  destination:
+    namespace: webcolor
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated: 
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
